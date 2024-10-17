@@ -6,7 +6,6 @@ const  jwt  = require('jsonwebtoken');
 const projectModel = require('../Models/projectmodel')
 
 const secret="secret";
-/* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
@@ -131,7 +130,7 @@ router.post("/updateProject", async (req, res) => {
     let project = await projectModel.findOneAndUpdate(
       { _id: projId },
       { htmlCode: htmlCode, cssCode: cssCode, jsCode: jsCode },
-      { new: true } // This option returns the updated document
+      { new: true } 
     );
 
     if (project) {
